@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name "viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your YouTube Guide</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto;
+        float: none;
+        background-color: rgb(222, 216, 216);
+      }
+      .whole-page {
+        background-color: white;
+        display: block;
+        border-radius: 10px;
+        box-shadow: 0 8px 8px -4px rgb(49, 47, 47);
+        margin: 0 auto;
+        padding-bottom: 50px;
+      }
+
+      .page-title {
+        display: inline-block;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+        border: 3px solid rgb(200, 9, 47);
+        margin: 20px auto 0 auto;
+        color: white;
+        background-color: crimson;
+        border-radius: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        box-shadow: 0 8px 8px -4px rgb(185, 215, 225);
+        cursor: pointer;
+        border: 2px solid;
+        transition: all 200ms ease;
+      }
+
+      .page-title:hover {
+        background-color: white;
+        color: crimson;
+        border: 3px solid crimson;
+      }
+
+      .intro-paragraph {
+        font-size: 1.2em;
+        line-height: 28px;
+        padding-bottom: 0;
+        padding-left: 40px;
+        padding-right: 40px;
+      }
+
+      .intro-paragraph p {
+        margin-bottom: 10px;
+        margin-top: 10px;
+        font-weight: 200;
+      }
+
+      .sub-heading {
+        color: white;
+        border: 3px solid rgb(200, 9, 47);
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+        font-weight: lighter;
+        background-color: crimson;
+        border-radius: 40px;
+        padding-top: 20px;
+        display: block;
+        margin: auto;
+        padding-bottom: 7px;
+        box-shadow: 0 8px 8px -4px rgb(185, 215, 225);
+        width: 400px;
+      }
+
+      .emoji-heading {
+        font-size: 30px;
+      }
+
+      .emoji-title {
+        font-size: 30px;
+      }
+      .youtube-tip {
+        line-height: 30px;
+        font-size: 15px;
+        text-align: left;
+      }
+      .youtube-link {
+        color: crimson;
+        font-weight: 400;
+        transition: all 200ms ease;
+      }
+      a {
+        outline: none;
+        text-decoration: none;
+        color: black;
+        transition: all 200ms ease;
+      }
+
+      a:hover {
+        background-color: crimson;
+        padding-left: 3px;
+        padding-right: 3px;
+        color: white;
+      }
+      p {
+        margin-top: 0;
+        padding-left: 40px;
+        padding-right: 40px;
+        font-weight: 100;
+      }
+
+      img {
+        border-radius: 20px;
+        display: block;
+        margin: 0 auto 15px auto;
+        width: 600px;
+        box-shadow: 0 8px 8px -4px rgb(129, 129, 129);
+      }
+
+      h3 {
+        margin-bottom: 60;
+        margin-top: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+      }
+
+      .text-emphasis {
+        text-decoration: underline;
+        font-weight: 400;
+      }
+      .paragraph-heading {
+        font-size: 23px;
+      }
+
+      .inshot-link {
+        font-weight: 400;
+      }
+      .inshot-link:hover {
+        background: crimson;
+        color: white;
+        font-weight: 700;
+      }
+
+      .link {
+        display: block;
+        background-color: crimson;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+          sans-serif;
+        font-size: medium;
+        font-weight: 700;
+        margin-top: 50px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px 15px;
+        width: 400px;
+        border: none;
+        padding: 10px 15px;
+        border-radius: 10px;
+        color: white;
+        background-color: crimson;
+        color: white;
+        box-shadow: 0 8px 8px -4px rgb(185, 215, 225);
+        border: 1px solid greyorange;
+        border-radius: 40px;
+      }
+
+      .link:hover {
+        background-color: white;
+        color: crimson;
+        cursor: pointer;
+        border: 1px solid crimson;
+      }
+      .icons {
+        font-size: 40px;
+        margin-top: 20px;
+        display: inline-block;
+      }
+
+      .youtube-icon {
+        color: crimson;
+        transition: all 200ms ease;
+        filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+      }
+
+      .youtube-icon:hover {
+        background: none;
+        color: white;
+      }
+      .instagram-icon {
+        color: crimson;
+        filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+      }
+      .instagram-icon:hover {
+        background: none;
+        color: white;
+      }
+
+      .linkedin-icon {
+        color: crimson;
+        transition: all 200ms ease;
+        filter: drop-shadow(3px 5px 2px rgb(0 0 0 / 0.4));
+      }
+
+      .linkedin-icon:hover {
+        background: none;
+        color: white;
+      }
+      .social-icon {
+        margin: 0 16px;
+      }
+
+      @media screen and (max-width: 480px) {
+        .whole-page {
+          max-width: 375px;
+        }
+        .page-title {
+          font-size: 8px;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+        .intro-paragraph {
+          font-size: 14px;
+          max-width: 480px;
+          padding: 0;
+          line-height: 150%;
+        }
+
+        img {
+          max-width: 300px;
+        }
+        .emoji-title {
+          font-size: 24px;
+        }
+        .paragraph-heading {
+          font-size: 16px;
+        }
+
+        .sub-heading {
+          max-width: 250px;
+          max-height: 38px;
+          padding-top: 0;
+          padding-bottom: 2px;
+          text-align: center;
+          overflow: hidden;
+          white-space: nowrap;
+        }
+        .emoji-heading {
+          font-size: 20px;
+          display: inline-block;
+          padding-top: 5px;
+        }
+        .long-heading {
+          font-size: 15px;
+        }
+        .final-heading {
+          padding-left: 20px;
+        }
+        .link {
+          width: 200px;
+        }
+        .youtube-icon {
+          float: inline-start;
+        }
+        .linkedin-icon {
+          float: inline-end;
+        }
+        .social-icon {
+          margin: 0 8px;
+        }
+        .youtube-tip {
+          line-height: 160%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="whole-page">
+      <div class="page-title">
+        <h1>
+          <strong class="greeting">
+            YouTube: A quick getting started guide
+          </strong>
+          <span class="emoji-title">📹</span>
+        </h1>
+      </div>
+      <div class="intro-paragraph">
+        <p>
+          So, you want to take a shot at creating a YouTube video?<strong>
+            Go for it!</strong
+          >
+          There are endless opportunities on YouTube and it’s also fun hobby
+          that gives you the opportunity to express yourself. Here is a guide to
+          help you make your first video.
+        </p>
+      </div>
+      <img
+        src="https://s3.amazonaws.com/shecodesio-production/uploads/files/000/050/953/original/pexels-photo-7243099.jpeg?1667238929"
+        alt="Woman setting up camera tripod"
+      />
+      <div class="sub-heading">
+        <p>
+          <strong class="paragraph-heading">Finding your niche </strong>
+          <span class="emoji-heading">🤔</span>
+        </p>
+      </div>
+      <br />
+      <div class="youtube-tip">
+        <p>
+          Before filming, think about what kind of videos you’d like to make.
+          Think of topics or hobbies that interest you, and videos that you
+          enjoy watching, rather than hopping on trends. If you are making
+          videos because the genre is popular right now, you will be more likely
+          to burn out and feel a lot of pressure to get views.
+          <strong class="text-emphasis"
+            >Do what you are passionate about.</strong
+          >
+        </p>
+      </div>
+      <div class="sub-heading">
+        <p>
+          <strong class="paragraph-heading">Your equipment </strong>
+          <span class="emoji-heading">🤳</span>
+        </p>
+      </div>
+      <br />
+      <div class="youtube-tip">
+        <p>
+          <strong class="text-emphasis">
+            When starting out its important to work with what you have.</strong
+          >
+          Most phone cameras can do a pretty good job with video recording and
+          good lighting is important. I recommend filming in natural light
+          before investing in lighting equipment. As you become more
+          experienced, your kit will grow as you gain knowledge of video
+          production.
+        </p>
+      </div>
+      <div class="sub-heading">
+        <p>
+          <strong class="paragraph-heading">Recording your video </strong
+          ><span class="emoji-heading">🎬</span>
+        </p>
+      </div>
+      <br />
+      <div class="youtube-tip">
+        <p>
+          It’s better to have too much footage than not enough. If you are
+          filming an intro, like I was in
+          <span class="youtube-link">
+            <a
+              href="https://www.youtube.com/watch?v=9eOpx-pAoBI&t=1s"
+              target="_blank"
+              >my first YouTube vlog in Istanbul 🇹🇷</a
+            ></span
+          >
+          for example, you might want to have a couple of takes to choose from.
+          There was some background noise in some of the takes I didn’t spot
+          till it was time to edit, luckily, we had filmed a few takes. Film
+          more takes to avoid this too! I recommend
+          <a class="inshot-link" href="https://inshot.com/" target="_blank"
+            >InShot</a
+          >
+          as a free and beginner friendly editing software for Apple and
+          Android.
+        </p>
+      </div>
+      <div class="sub-heading">
+        <p class="final-heading">
+          <strong class="long-heading">Don’t watch the numbers </strong
+          ><span class="emoji-heading">😎</span>
+        </p>
+      </div>
+      <br />
+      <div class="youtube-tip">
+        <p>
+          Once you’ve uploaded your video,<strong class="text-emphasis">
+            don’t stress about number of views.</strong
+          >
+          This may discourage you if you don’t get the number of views you
+          expected for your first video.
+          <strong class="text-emphasis">
+            Almost 90% of all uploaded YouTube videos will never reach 1,000
+            views 😱, but you shouldn’t let that stop you!</strong
+          >
+          Try not to worry about YouTube Studio stats either, there is so much
+          mystery to the YouTube algorithm. The best thing you can do is to
+          reflect on your video and keep note of improvements for next time. Ask
+          friends and family for honest feedback and see what you can change
+          practically for you next video.
+        </p>
+      </div>
+      <br />
+      <h3>
+        To sustain your YouTube channel, you must enjoy what you are doing! 😁
+        <br />
+        So have fun, and good luck! 🍀
+      </h3>
+      <a
+        class="link"
+        href="https://www.youtube.com/watch?v=9eOpx-pAoBI&t=1s"
+        target="_blank"
+        >Click here to watch my first video 💻📱</a
+      >
+    </div>
+    <div class="icons">
+      <a
+        class="youtube-icon social-icon"
+        href="https://www.youtube.com/channel/UC17uwWgEyxVH1rvh_UJliHw"
+        target="_blank"
+      >
+        <ion-icon name="logo-youtube"></ion-icon>
+      </a>
+      <a
+        class="instagram-icon social-icon"
+        href="https://www.instagram.com/em_11.11/"
+        target="_blank"
+      >
+        <ion-icon name="logo-instagram"></ion-icon>
+      </a>
+      <a
+        class="linkedin-icon social-icon"
+        href="https://www.linkedin.com/in/emem-umoabasi-039820186/"
+        target="_blank"
+      >
+        <ion-icon name="logo-linkedin"></ion-icon>
+      </a>
+    </div>
+
+    <script>
+      function welcomeMessage() {
+        let name = prompt("Welcome 😄, What is your name? ✏️");
+        alert("Hi " + name + "! Here is your personal guide! ☺️");
+        let welcomeEdit = document.querySelector(".greeting");
+        welcomeEdit.innerHTML = name + "'s Quick Guide to Youtube 😁";
+      }
+
+      let pageTitle = document.querySelector(".page-title");
+      pageTitle.addEventListener("click", welcomeMessage);
+    </script>
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
+  </body>
+</html>
